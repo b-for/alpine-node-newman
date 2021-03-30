@@ -1,5 +1,5 @@
 #Based on formerly used docker image: softandbyte/docker_newman
-#Changes: node 8 => node 14 / newman 4.5.7 => 5.2.2 / removed openjdk8
+#Changes: node 8 => node 14 / newman 4.3.1 => 5.2.2 / removed openjdk8 / added junitfull reporter
 
 FROM mhart/alpine-node:14
 
@@ -13,4 +13,4 @@ RUN apk update \
     && rm -rf /var/cache/apk/*
     
 # Install newman
-RUN npm install -g newman@${NEWMAN_VERSION};
+RUN npm install -g newman@${NEWMAN_VERSION} newman-reporter-junitfull;
